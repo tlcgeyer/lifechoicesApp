@@ -1,4 +1,4 @@
-import {Users} from "./Users.js"
+import {Users} from "./Users.js/users"
 import { Products } from "./Products.js";
 
 // Creating an object
