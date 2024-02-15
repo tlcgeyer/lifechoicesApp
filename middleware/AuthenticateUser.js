@@ -6,7 +6,7 @@ import { sign, verify } from "jsonwebtoken";
 
 // Creating a token.
 function createToken(user) {
-    return sign({
+    return sign({ //to create a token make use of the function sign and to verify the token make use of the token function 'verify'
         emailAdd: user.emailAdd,
         userPwd: userPwd
     },
@@ -16,10 +16,10 @@ function createToken(user) {
     }
     )
 }
-/*When creating a user is when we create a token. When the user logins in that is when the verifying of the token happens.
-A token can also be an ID to identify the user who is currently logged in. */
+/*When creating a user is when we create a token. When the user logins that is when the verifying of the token happens.
+A token can also be an ID to identify the user  who is currently logged in. */
 // Verifying the token.
-function verifyAToken(req, res, next) {
+function verifyAToken(req, res, next) { 
     // Retrieve a token from the browser
     const token = req?.headers['Authorization'] //to prevent a null error we make use of ? fore we do not wanna get a issue with undefined
     if(token) { //this 'if' statement is a NESTED IF STATEMENT
