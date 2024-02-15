@@ -1,7 +1,7 @@
 import {config} from "dotenv";
 config()
 
-// To create a token we have to first :
+// To create a token we have to first : PS: sign is used to create a token
 import { sign, verify } from "jsonwebtoken";
 
 // Creating a token.

@@ -16,6 +16,11 @@ class Users {
         userPwd, userRole 
         FROM Users;
         `
+        /*If it were to be a single user: 
+        SELECT userID, firstName, lastName, userAge, gender, emailAdd,
+        userPwd, userRole 
+        FROM Users
+        WHERE userID = ${req.params.id};*/
         db.query(qry, (err, results) => {
             if(err) throw err
             res.json({
@@ -24,4 +29,38 @@ class Users {
             })
         })
     }
+
+    async createUser(req, res) {
+        // Payload
+        let data = req.body //req.body object allows you to retrieve data sent in the request body
+        data.userPwd = await hash(data?.userPwd, 10) //we want to encrypt the password
+        let user = {
+            emailAdd: data.emailAdd,
+            userPwd: data.userPwd
+        }
+        const qry = `
+        INSERT INTO Users
+        SET ?;
+        `
+        db.query(qry, [data], (err)=> {
+            if(err) {
+                res.json({
+                    status: res.statusCode,
+                    msg: 'Email address already exists.'
+                })
+            }else {
+
+                //Creating the token
+                let token = createToken(user)
+                res.json({
+                    status: res.statusCode,
+                    token,
+                    msg: 'Registered!'
+                })
+            }
+        })
+    }
+}
+export {
+    Users
 }
