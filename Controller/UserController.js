@@ -1,8 +1,7 @@
-import express from 'express'
-import bodyParser  from 'body-parser'
-import { Users } from '../model/users'
-import { verifyAToken } from '../middleware/AuthenticateUser'
-
+import bodyParser  from 'body-parser';
+import { verifyAToken } from './middleware/AuthenticateUser.js';
+import { users } from './model/index.js';
+import express from 'express';
 const userRouter = express.Router()
 
 //Fetching the users 

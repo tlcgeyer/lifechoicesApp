@@ -4,6 +4,7 @@ config()
 // To create a token we have to first : PS: sign is used to create a token
 import { sign, verify } from "jsonwebtoken";
 
+const {sign, verify} = jwt;
 // Creating a token.
 function createToken(user) {
     return sign({ //to create a token make use of the function sign and to verify the token make use of the token function 'verify'
