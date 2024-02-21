@@ -1,6 +1,6 @@
 import bodyParser from "body-parser";
-import express  from "./UserController.js";
-import { products } from "./model/index.js";
+import express  from "express";
+import { products } from "../model/index.js";
 
 const productRouter = express.Router()
 
