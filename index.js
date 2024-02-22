@@ -26,7 +26,7 @@ app.use((req,res, next) => {
 app.use(
     express.static('/static'),
     express.json(),
-    express.urlEncoded({
+    express.urlencoded({
         extended: true,
     }),
     cookieParser,
