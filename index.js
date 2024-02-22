@@ -34,7 +34,7 @@ app.use(
 )
 
 app.get('^/$|/lifechoicesApp', (req, res) => {
-    res.statusCode(200).sendFile(path.join(__dirname, '../static/index.html'))
+    res.statusCode(200).sendFile(path.join(__dirname, './static/index.html'))
     
 })
 
