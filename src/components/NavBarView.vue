@@ -42,4 +42,8 @@
 img[alt="logo"] {
     width: 90px;
 }
+
+.navbar-nav li {
+        margin-inline: .2rem;
+    }
 </style>

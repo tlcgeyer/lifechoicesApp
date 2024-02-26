@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-
 const routes = [
   {
     path: '/',
@@ -10,12 +9,17 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: () => import( '../views/AboutView.vue')
   },
   {
-    path: '/projects',
+    path: '/products',
     name: 'projects',
     component: () => import('../views/ProductsView.vue')
+  },
+  {
+    path: '/product/:id',
+    name: 'project',
+    component: () => import('../views/SingleProdView.vue')
   },
   {
     path: '/admin',
@@ -30,7 +34,7 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/LoginVIew.vue')
+    component: () => import('@/views/LoginView.vue')
   }
 ]
 
